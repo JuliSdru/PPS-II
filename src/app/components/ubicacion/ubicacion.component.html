@@ -24,30 +24,48 @@
             <mat-card-title>Estacionamientos</mat-card-title>
         </mat-card-header>
 
-        <form class="example-form-est" >
+        <form class="example-form-est" [formGroup]="formulario" (ngSubmit)="onSubmit()" >
             <mat-card-content>
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Nombre estacionamiento">
+                    <input matInput placeholder="Nombre estacionamiento" formControlName="name">
                 </mat-form-field>
 
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Localidad">
+                    <input matInput placeholder="Localidad" formControlName="localidad">
                 </mat-form-field>
 
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Direccion">
+                    <input matInput placeholder="Direccion" formControlName="direccion">
                 </mat-form-field>
 
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Capacidad">
+                    <input matInput placeholder="Capacidad" formControlName="capacidad"> 
                 </mat-form-field>
 
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Horarios">
+                    <input matInput placeholder="Horarios" formControlName="horarios">
                 </mat-form-field>
             </mat-card-content>
             <button mat-stroked-button color="accent" class="btn-block">Buscar</button>
         </form>
     </mat-card>
+
+    <div class="place">
+        <div class="place" *ngFor="let estacionamiento of estacionamientos">
+            <div class="info">
+                <h4>Nombre: {{estacionamiento.name}}</h4>
+                <h4>Localidad: {{estacionamiento.localidad}}</h4>
+                <h4>Direccion: {{estacionamiento.direccion}}</h4>
+                <h4>Capacidad: {{estacionamiento.capacidad}}</h4>
+                <h4>Horarios: {{estacionamiento.horarios}}</h4>
+                <h4>--------------------------------------</h4>
+                <!-- <p>{{estacionamiento.localidad}}</p>
+                <p>{{estacionamiento.direccion}</p>
+                <p>{{estacionamiento.capacidad}</p>
+                <p>{{estacionamiento.horarios}</p> -->
+                 <button class="btn btn-outline-danger" (click)="onClickDelete(estacionamiento)">Borrar</button> 
+            </div>
+        </div>
+    </div>
 
 </div>

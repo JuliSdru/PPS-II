@@ -27,7 +27,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { VehiculosComponent } from './components/vehiculos/vehiculos.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth'
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore'
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +55,8 @@ import { provideAuth,getAuth } from '@angular/fire/auth'
     MatButtonModule,
     GoogleMapsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth())
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
 
   ],
   exports: [
