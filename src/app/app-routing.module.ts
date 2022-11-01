@@ -9,6 +9,7 @@ import { UbicacionComponent } from './components/ubicacion/ubicacion.component';
 import { VehiculosComponent } from './components/vehiculos/vehiculos.component';
 import { LocalidadComponent } from './components/localidad/localidad.component';
 import { PagoReservaComponent } from './components/pago-reserva/pago-reserva.component';
+import { ListadoDuenioComponent } from './listado-duenio/listado-duenio.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,9 @@ const routes: Routes = [
   },
   {
     path: 'pagoReserva', component: PagoReservaComponent
+  },
+  {
+    path: 'listadoDueño', component:ListadoDuenioComponent
   }
 
 

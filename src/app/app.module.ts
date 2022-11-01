@@ -19,7 +19,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSliderModule } from '@angular/material/slider';
+import {MatTableModule} from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -56,9 +58,11 @@ import { ListadoDuenioComponent } from './listado-duenio/listado-duenio.componen
     MatCardModule,
     MatFormFieldModule,
     MatSliderModule,
+    MatTableModule,
     MatSelectModule,
     MatInputModule,
     MatButtonModule,
+    MatPaginatorModule,
     GoogleMapsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
