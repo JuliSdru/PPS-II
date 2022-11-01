@@ -10,26 +10,27 @@
             <mat-card-title>Registrar vehiculo</mat-card-title>
         </mat-card-header>
 
-        <form class="example-form">
+        <form class="example-form" [formGroup]="formulario" (ngSubmit)="onSubmit()" >
 
             <mat-card-content>
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Modelo">
+                    <input matInput placeholder="Modelo" formControlName="modelo">
                 </mat-form-field>
 
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Patente">
+                    <input matInput placeholder="Patente" formControlName="patente">
                 </mat-form-field>
 
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Color">
+                    <input matInput placeholder="Color" formControlName="color">
                 </mat-form-field>
 
 
-                <mat-form-field class="example-full-width">
+                <mat-form-field class="example-full-width" >
                     <mat-label>Tipo</mat-label>
-                    <mat-select>
-                        <mat-option [value]="roles" *ngFor="let roles of Roles">{{roles}}
+                    <mat-select formControlName="tipo">
+                          <mat-option> value=""></mat-option>
+                        <mat-option  *ngFor="let roles of tipo" [value]="roles">{{roles}}
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
@@ -40,4 +41,14 @@
 
         </form>
     </mat-card>
+
+    <div class="place">
+        <div class="place" *ngFor="let vehiculo of vehiculos">
+            <div class="info">
+                <h4>Modelo: {{vehiculo.modelo}}</h4>
+                <h4>Patente: {{vehiculo.patente}}</h4>
+                 <button class="btn btn-outline-danger" (click)="onClickDelete(vehiculo)">Borrar</button> 
+            </div>
+        </div>
+    </div>
 </div>

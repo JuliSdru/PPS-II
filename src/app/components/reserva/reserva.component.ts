@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import Reserva from 'src/app/interfaces/reserva.interface';
+import { ReservaService } from 'src/app/services/reserva.service';
 
 @Component({
   selector: 'app-reserva',
@@ -6,12 +9,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reserva.component.css']
 })
 export class ReservaComponent implements OnInit {
-
-  Roles: any = ['Auto1', 'Auto2', 'Camioneta'];
-  Reserv: any = ['Hora', '1/2 hora', 'Estadia'];
-  constructor() { }
+  formulario: FormGroup;
+  reserva: Reserva[];
+  asignarVehiculo: any = ['Auto1', 'Auto2', 'Camioneta'];
+  tipoReserva: any = ['Hora', '1/2 hora', 'Estadia'];
+  constructor(
+    private reservaService: ReservaService
+  ) { 
+    this.formulario = new FormGroup({
+      direccion: new FormControl(),
+      horario: new FormControl(),
+      asignarVehiculo: new FormControl(),
+      tipoReserva: new FormControl()
+    })
+    this.reserva = [];
+  }
 
   ngOnInit(): void {
+    this.reservaService.getReserva().subscribe(reserva => {
+      this.reserva = reserva;
+    })
   }
 
   display: any;
@@ -26,5 +43,17 @@ export class ReservaComponent implements OnInit {
   move(event: google.maps.MapMouseEvent) {
       if (event.latLng != null) this.display = event.latLng.toJSON();
   }
+
+  async onSubmit() {
+    console.log(this.formulario.value)
+    const response = await this.reservaService.addReserva(this.formulario.value);
+    console.log(response);
+  }
+
+  async onClickDelete(reserva: Reserva) {
+    const response = await this.reservaService.deleteReserva(reserva);
+    console.log(response);
+  }
+
 
 }

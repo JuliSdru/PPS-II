@@ -1,0 +1,55 @@
+
+<mat-toolbar color="primary" class="app-header">
+    <!-- <span class="nav-tool-items">
+    <a mat-button routerLink="login" routerLinkActive="active">Iniciar sesion</a>
+    <a mat-button mat-raised-button routerLink="registro" routerLinkActive="active">Registrar</a>
+  </span> -->
+</mat-toolbar>
+
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+  <div style="position: relative; right:5%;">      
+    <google-map height="400px"
+    width="650px"
+    [center]="center"
+    [zoom]="zoom"
+    (mapClick)="moveMap($event)"
+    (mapMousemove)="move($event)">
+</google-map>
+</div>
+<!-- <div>Latitude: {{display?.lat}}</div>
+<div>Longitude: {{display?.lng}}</div>  -->
+    <mat-card class="box">
+        <mat-card-header>
+            <mat-card-title>Estacionamientos</mat-card-title>
+        </mat-card-header>
+
+        <form class="example-form-est" [formGroup]="formulario" (ngSubmit)="onSubmit()" >
+            <mat-card-content>
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Localidad" formControlName="localidad">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Direccion" formControlName="direccion">
+                </mat-form-field>
+
+             
+            </mat-card-content>
+            <button mat-stroked-button color="accent" class="btn-block">Buscar</button>
+        </form>
+    </mat-card>
+
+    <div class="place">
+        <div class="place" *ngFor="let localidad of localidades">
+            <div class="info">
+                <h4>Direccion: {{localidad.direccion}}</h4>
+                <h4>Localidad: {{localidad.localidad}}</h4>
+                <!-- <button class="btn btn-outline-danger" (click)="onClickDelete(localidad)">Borrar</button>  -->
+                 <button class="btn btn-outline-danger" routerLink="/reserva">Reservar</button> 
+            </div>
+        </div>
+    </div> 
+
+</div>
+

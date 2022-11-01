@@ -1,0 +1,12 @@
+
+.example-form-est{
+    min-width: 100%;
+    max-width: 500px;
+    width: 100%;
+}
+
+.login-wrapper .mat-card {
+    padding: 40px 70px 50px;
+    top: 5%;
+}
+

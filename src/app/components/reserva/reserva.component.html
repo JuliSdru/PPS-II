@@ -21,40 +21,42 @@
             <mat-card-title>Reservar estacionamiento</mat-card-title>
         </mat-card-header>
 
-        <form class="example-form">
+        <form class="example-form" [formGroup]="formulario" (ngSubmit)="onSubmit()">
 
             <mat-card-content>
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Direccion">
+                    <input matInput placeholder="Direccion" formControlName="direccion">
                 </mat-form-field>
 
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Horario">
+                    <input matInput placeholder="Horario" formControlName="horario">
                 </mat-form-field>
 
-                <!-- <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Password">
-                </mat-form-field> -->
-
+        
                 <mat-form-field class="example-full-width">
                     <mat-label>Asigar vehiculo</mat-label>
-                    <mat-select>
-                        <mat-option [value]="roles" *ngFor="let roles of Roles">{{roles}}
+                    <mat-select formControlName="asignarVehiculo">
+                        <!-- <mat-option> value=""></mat-option> -->
+                        <mat-option  *ngFor="let roles of asignarVehiculo" [value]="roles">{{roles}}
                         </mat-option>
+
                     </mat-select>
                 </mat-form-field>
 
                 <mat-form-field class="example-full-width">
                     <mat-label>Tipo de reserva</mat-label>
-                    <mat-select>
-                        <mat-option [value]="reserv" *ngFor="let reserv of Reserv">{{reserv}}
+                    <mat-select formControlName="tipoReserva">
+                        <!-- <mat-option> value=""></mat-option> -->
+                        <mat-option  *ngFor="let reserv of tipoReserva" [value]="reserv">{{reserv}}
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
 
+                
+
             </mat-card-content>
 
-            <button mat-stroked-button color="accent" class="btn-block">Pagar reserva</button>
+            <button mat-stroked-button color="accent" class="btn-block" routerLink="/pagoReserva">Pagar reserva</button>
 
         </form>
     </mat-card>

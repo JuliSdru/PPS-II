@@ -28,7 +28,10 @@ import { VehiculosComponent } from './components/vehiculos/vehiculos.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore'
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { LocalidadComponent } from './components/localidad/localidad.component';
+import { PagoReservaComponent } from './components/pago-reserva/pago-reserva.component';
+import { ListadoDuenioComponent } from './listado-duenio/listado-duenio.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +39,10 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore'
     RegistroComponent,
     ReservaComponent,
     UbicacionComponent,
-    VehiculosComponent
+    VehiculosComponent,
+    LocalidadComponent,
+    PagoReservaComponent,
+    ListadoDuenioComponent
   ],
   imports: [
     BrowserModule,

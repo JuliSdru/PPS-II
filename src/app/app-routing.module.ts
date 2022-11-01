@@ -7,6 +7,8 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { ReservaComponent } from './components/reserva/reserva.component';
 import { UbicacionComponent } from './components/ubicacion/ubicacion.component';
 import { VehiculosComponent } from './components/vehiculos/vehiculos.component';
+import { LocalidadComponent } from './components/localidad/localidad.component';
+import { PagoReservaComponent } from './components/pago-reserva/pago-reserva.component';
 
 const routes: Routes = [
   {
@@ -26,7 +28,15 @@ const routes: Routes = [
   },
   {
     path: 'vehiculo', component: VehiculosComponent
+  },
+  {
+    path: 'localidad', component: LocalidadComponent
+  },
+  {
+    path: 'pagoReserva', component: PagoReservaComponent
   }
+
+
 
 ]
 
